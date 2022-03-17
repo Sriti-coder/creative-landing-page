@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(../img/background.png);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+.container{
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.fas.fa-search:hover {
+	background: #FDC11F;
+	height: 40px;
+	width: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 50%;
+	border: 11px solid #70683B;
+  transition: .3s;
+}
+.wrapper{
+    background: transparent;
+    width: 100%;
+  }
+  .wrapper nav{
+    position: relative;
+    display: flex;
+    max-width: calc(100% - 200px);
+    margin: 0 auto;
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .content{
+    display: flex;
+    align-items: center;
+  }
+  nav .content .links{
+    margin-left: 80px;
+    display: flex;
+  }
+
+  .content .links li{
+    list-style: none;
+    line-height: 70px;
+  }
+  .content .links li a,
+  .content .links li label{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .content .links li label{
+    display: none;
+  }
+  .content .links li a:hover,
+  .content .links li label:hover{
+    border-bottom: 2px solid #FDC11F;
+    border-radius: 0;
+  }
+  .wrapper .search-icon,
+  .wrapper .menu-icon{
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 70px;
+    width: 70px;
+    text-align: center;
+  }
+  .wrapper .menu-icon{
+    display: none;
+  }
+  .wrapper #show-search:checked ~ .search-icon i::before{
+    content: "\f00d";
+  }
+  
+  .wrapper .search-box{
+    position: absolute;
+    height: 100%;
+    max-width: calc(100% - 50px);
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .wrapper #show-search:checked ~ .search-box{
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .search-box input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    color: #fff;
+    background: #171c24;
+    padding: 0 100px 0 15px;
+  }
+  .search-box input::placeholder{
+    color: #f2f2f2;
+  }
+  .search-box .go-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 60px;
+    width: 70px;
+    background: #171c24;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .wrapper input[type="checkbox"]{
+    display: none;
+  }
+  
+  /* Responsive code start */
+  @media screen and (max-width: 1250px){
+    .wrapper nav{
+      max-width: 100%;
+      padding: 0 20px;
+    }
+    nav .content .links{
+      margin-left: 30px;
+    }
+    .content .links li a{
+      padding: 8px 13px;
+    }
+    .wrapper .search-box{
+      max-width: calc(100% - 100px);
+    }
+    .wrapper .search-box input{
+      padding: 0 100px 0 15px;
+    }
+  }
+  
+  @media screen and (max-width: 900px){
+    .wrapper .menu-icon{
+      display: block;
+    }
+    .wrapper #show-menu:checked ~ .menu-icon i::before{
+      content: "\f00d";
+    }
+    nav .content .links{
+      display: block;
+      position: fixed;
+      background: #14181f;
+      height: 100%;
+      width: 100%;
+      top: 70px;
+      left: -100%;
+      margin-left: -22px;
+      max-width: 350px;
+      overflow-y: auto;
+      padding-bottom: 100px;
+      transition: all 0.3s ease;
+    }
+    nav #show-menu:checked ~ .content .links{
+      left: 0%;
+    }
+    .content .links li{
+      margin: 15px 20px;
+    }
+    .content .links li a,
+    .content .links li label{
+      line-height: 40px;
+      font-size: 20px;
+      display: block;
+      padding: 8px 18px;
+      cursor: pointer;
+    }
+    .content .links li a.desktop-link{
+      display: none;
+    }
+  
+    /* dropdown responsive code start */
+    .content .links ul,
+    .content .links ul ul{
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      background: none;
+      max-height: 0px;
+      overflow: hidden;
+    }
+    .content .links #show-features:checked ~ ul,
+    .content .links #show-services:checked ~ ul,
+    .content .links #show-items:checked ~ ul{
+      max-height: 100vh;
+    }
+    .content .links ul li{
+      margin: 7px 20px;
+    }
+    .content .links ul li a{
+      font-size: 18px;
+      line-height: 30px;
+      border-radius: 5px!important;
+    }
+  }
+  
+  @media screen and (max-width: 400px){
+    .wrapper nav{
+      padding: 0 10px;
+    }
+    .content .logo a{
+      font-size: 27px;
+    }
+    .wrapper .search-box{
+      max-width: calc(100% - 70px);
+    }
+    .wrapper .search-box .go-icon{
+      width: 30px;
+      right: 0;
+    }
+    .wrapper .search-box input{
+      padding-right: 30px;
+    }
+  }
+  
+  .dummy-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    z-index: -1;
+    padding: 0 20px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+  .dummy-text h2{
+    font-size: 45px;
+    margin: 5px 0;
+  }
+  
+  /* landing-body */
+  .logo img {
+	width: 40%;
+}
+.landing{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 5rem;
+}
+.text {
+	margin-top: 14px;
+}
+.landing-img {
+	margin-top: 80px;
+}
+.landing-img {
+	margin-top: 62px;
+}
+.text h2 {
+	color: #FDC11F;
+	font-size: 54px;
+	font-weight: 800;
+	margin-bottom: 10px;
+}
+.text span {
+	color: #fff;
+	font-size: 54px;
+	font-weight: 800;
+}
+.text p {
+	color: #fff;
+	margin-bottom: 25px;
+}
+.form-control {
+	display: block;
+}
+.form-control {
+	width: 55%;
+	height: 37px;
+	border-radius: 23px;
+	border: none;
+	margin-bottom: 25px;
+	padding-left: 10px;
+}
+.btn-main.btn-white {
+	background: #FDC11F;
+	border: none;
+	width: 86px;
+	height: 33px;
+	border-radius: 13px;
+}
+/* ***********************************
+          responsive css
+*********************************** */
+/* XL Device :1200px. */
+@media (min-width: 1200px) and (max-width: 1449px) {
+
+}
+
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .text h2 {
+    font-size: 32px;
+  }
+  .text span {
+    font-size: 33px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+  .landing-img img {
+    width: 100%;
+  }
+  nav .content .links {
+    margin-left: -64px;
+  }
+}
+
+ 
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .text h2 {
+    font-size: 32px;
+  }
+  .text span {
+    font-size: 33px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+  .landing-img img {
+    width: 100%;
+  }
+  nav .content .links {
+    margin-left: -64px;
+  }
+}
+ 
+
+/* SM Small Device :320px. */
+@media only screen and (min-width: 541px) and (max-width: 767px) {
+  .text h2 {
+    font-size: 32px;
+  }
+  .text span {
+    font-size: 33px;
+  }
+  .landing {
+    grid-template-columns: repeat(1,1fr);
+  }
+  .text p {
+    font-size: 14px;
+  }
+  .landing-img img {
+    width: 100%;
+  }
+  nav .content .links {
+    margin-left: -64px;
+  }
+  .landing-img {
+    margin-top: -11px;
+  }
+
+}
+
+
+
+
+
+/* SM Small Device :550px. */
+@media only screen and (min-width: 0px) and (max-width: 540px) {
+  .text h2 {
+    font-size: 32px;
+  }
+  .text span {
+    font-size: 33px;
+  }
+  .landing {
+    grid-template-columns: repeat(1,1fr);
+  }
+  .text p {
+    font-size: 14px;
+  }
+  .landing-img img {
+    width: 100%;
+  }
+  nav .content .links {
+    margin-left: -64px;
+  }
+  .landing-img {
+    margin-top: -11px;
+  }
+}
